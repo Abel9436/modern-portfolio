@@ -68,14 +68,15 @@ export function AgencySection() {
             {services.map((service, index) => {
               const Icon = service.icon
               return (
-                <ElectricCard 
+                <div
                   key={service.title}
                   style={{
                     animationDelay: `${index * 100}ms`,
                     animation: isVisible ? 'fadeInUp 0.8s ease-out forwards' : 'none'
                   }}
                 >
-                  <div className="p-8">
+                  <ElectricCard>
+                    <div className="p-8">
                     <div className="flex items-start gap-6">
                       <div className="flex-shrink-0">
                         <div className="p-4 bg-primary/10 rounded-xl group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300 animate-pulse-glow">
@@ -103,7 +104,8 @@ export function AgencySection() {
                       </div>
                     </div>
                   </div>
-                </ElectricCard>
+                  </ElectricCard>
+                </div>
               )
             })}
           </div>
