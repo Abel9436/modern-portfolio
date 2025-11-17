@@ -68,42 +68,44 @@ export function AgencySection() {
             {services.map((service, index) => {
               const Icon = service.icon
               return (
-                <ElectricCard 
+                <div
                   key={service.title}
                   style={{
                     animationDelay: `${index * 100}ms`,
                     animation: isVisible ? 'fadeInUp 0.8s ease-out forwards' : 'none'
                   }}
                 >
-                  <div className="p-8">
-                    <div className="flex items-start gap-6">
-                      <div className="flex-shrink-0">
-                        <div className="p-4 bg-primary/10 rounded-xl group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300 animate-pulse-glow">
-                          <Icon className="w-8 h-8 text-primary" />
+                  <ElectricCard>
+                    <div className="p-8">
+                      <div className="flex items-start gap-6">
+                        <div className="flex-shrink-0">
+                          <div className="p-4 bg-primary/10 rounded-xl group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300 animate-pulse-glow">
+                            <Icon className="w-8 h-8 text-primary" />
+                          </div>
+                        </div>
+                        
+                        <div className="flex-grow">
+                          <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
+                            {service.title}
+                          </h3>
+                          
+                          <p className="text-muted-foreground mb-4 leading-relaxed">
+                            {service.description}
+                          </p>
+                          
+                          <ul className="space-y-2">
+                            {service.features.map((feature) => (
+                              <li key={feature} className="flex items-center text-sm text-muted-foreground">
+                                <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2" />
+                                {feature}
+                              </li>
+                            ))}
+                          </ul>
                         </div>
                       </div>
-                      
-                      <div className="flex-grow">
-                        <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
-                          {service.title}
-                        </h3>
-                        
-                        <p className="text-muted-foreground mb-4 leading-relaxed">
-                          {service.description}
-                        </p>
-                        
-                        <ul className="space-y-2">
-                          {service.features.map((feature) => (
-                            <li key={feature} className="flex items-center text-sm text-muted-foreground">
-                              <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2" />
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
                     </div>
-                  </div>
-                </ElectricCard>
+                  </ElectricCard>
+                </div>
               )
             })}
           </div>
