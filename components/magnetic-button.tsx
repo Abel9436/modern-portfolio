@@ -1,14 +1,15 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useRef, useState, type ReactNode } from 'react'
 import { Button } from '@/components/ui/button'
 
 interface MagneticButtonProps {
-  children: React.ReactNode
+  children: ReactNode
   className?: string
   onClick?: () => void
   variant?: 'default' | 'outline' | 'ghost'
   size?: 'default' | 'sm' | 'lg'
+  type?: 'button' | 'submit' | 'reset'
 }
 
 export function MagneticButton({ 
@@ -16,7 +17,8 @@ export function MagneticButton({
   className = '',
   onClick,
   variant = 'default',
-  size = 'default'
+  size = 'default',
+  type = 'button'
 }: MagneticButtonProps) {
   const buttonRef = useRef<HTMLButtonElement>(null)
   const [position, setPosition] = useState({ x: 0, y: 0 })
@@ -51,6 +53,7 @@ export function MagneticButton({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
+      type={type}
     >
       {children}
     </Button>
