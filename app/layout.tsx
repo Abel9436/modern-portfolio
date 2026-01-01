@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   title: 'Abel - AI & Automation Expert | Software Engineer',
   description: 'Portfolio of Abel - Software Engineer, Fullstack & Mobile App Developer, AI Specialist, and Automation Expert',
   generator: 'v0.app',
+   other: {
+    'google-adsense-account': 'ca-pub-9122247401478241',
+  },
   icons: {
     icon: [
       {
